@@ -1,8 +1,6 @@
 #ifndef STARCHTYPES
 #define STARCHTYPES
 
-
-
 // what type of enum it is
 enum StarchNodeTypes {
     CONTROLFLOW,
@@ -13,7 +11,7 @@ enum StarchNodeTypes {
 struct StarchNode
 {
     void* node;
-    StarchNodeTypes type;
+    enum StarchNodeTypes type;
 };
 
 
@@ -21,7 +19,7 @@ struct StarchNode
 enum StarchNodeOperators {
     ADD,
     SUBTRACT,
-    MULTIPY,
+    MULTIPLY,
     DIVIDE,
     GTEQ,
     GT,
@@ -58,17 +56,17 @@ enum StarchNodeBaseTypes {
 struct StarchNodeControlFlow
 {
     void* node;
-    StarchControlFlowTypes type;
+    enum StarchControlFlowTypes type;
 };
 
 struct StarchNodeOperator {
     void* node;
-    StarchNodeOperators type;
+    enum StarchNodeOperators type;
 };
 
 struct StarchNodeBaseType {
-    void* type;
-    StarchNodeTypes type;
+    void* node;
+    enum StarchNodeTypes type;
 };
 
 struct StarchAdd { struct StarchNodeBaseType* a; struct StarchNodeBaseType* b;};
