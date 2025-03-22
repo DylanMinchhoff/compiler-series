@@ -1,0 +1,9 @@
+
+DECIMAL_OPERATION -> INT DECIMAL_OPERATOR INT
+
+INT ->
+
+
+DECIMAL_OPERATOR -> + | - | / | *
+NUMERICAL_OPERATOR -> > | >= | == | <= | <
+BOOLEAN_OPERATOR -> || | && | ==
