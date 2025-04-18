@@ -1,5 +1,5 @@
 
-struct Tuple
+struct DataPair
 {
     void* a;
     enum NODETYPE at;
