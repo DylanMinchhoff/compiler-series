@@ -65,6 +65,7 @@ struct CTestLibList {
     struct CTestLibTestNode* tail;
 };
 
+// final status of test after test is ran
 enum CTEST_LIB_TEST_STATUS {
     CTEST_LIB_STATUS_FAIL,
     CTEST_LIB_STATUS_PASS,
@@ -72,6 +73,13 @@ enum CTEST_LIB_TEST_STATUS {
     CTEST_LIB_STATUS_SKIPP,
     CTEST_LIB_STATUS_ERROR,
     CTEST_LIB_STATUS_RETURN
+};
+
+//expected status of test (optional param)
+enum CTEST_LIB_TEST_EXPECTED {
+    CTEST_LIB_STATUS_UXFAIL,
+    CTEST_LIB_STATUS_SKIPP,
+    CTEST_LIB_STATUS_ERROR,
 };
 
 enum CTEST_LIB_RESULT_STATUS {
