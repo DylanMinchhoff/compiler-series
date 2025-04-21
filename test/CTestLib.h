@@ -4,9 +4,8 @@
 #include <time.h>
 #include <assert.h>
 
-#ifndef C_TEST_LIB_SKIP_TEST
-#define C_TEST_LIB_SKIP_TEST //
-
+#ifndef __cplusplus
+#include <stdbool.h>
 #endif
 
 
@@ -87,6 +86,14 @@ enum CTEST_LIB_RESULT_STATUS {
     CTEST_LIB_RES_STATUS_RAN,
     CTEST_LIB_RES_STATUS_RUNNING,
 };
+
+// TODO: add custon compares to lib
+
+
+
+
+
+
 
 
 #endif

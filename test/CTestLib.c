@@ -94,18 +94,30 @@ void addTestToRegestry(struct CTestLibTestReg* reg, struct CTestLibTest* test) {
     //extract the linked list of tests
     struct CTestLibList* regList = reg->testLists;
 
+    //create new test node
+    struct CTestLibTestNode* currTestNode = (struct CTestLibTestNode*) malloc(sizeof(struct CTestLibTestNode));
+    currTestNode->next = regList->head;
+    currTestNode->test = test;
+    
+    regList->head = currTestNode;
     // add a new test
-
-
-    if(reg->testLists == NULL) {
-        
+    if(reg->testLists == NULL) { // no tests in curr list of tests
+        regList->head = currTestNode;
     }
+
+    reg->testLists->size = reg->testLists->size + 1;
+}
+
+void addTestSuiteToRegistry() {
+    
 }
 
 struct CTestLibTestReg* init_CTestLib() {
     struct CTestLibTestReg* reg = (struct CTestLibTestReg*) malloc(sizeof(struct CTestLibTestReg*));
     reg->testLists = (struct CTestLibList*) malloc(sizeof(struct CTestLibList));
-
+    reg->testLists->head = NULL;
+    reg->testLists->tail = NULL;
+    reg->testLists->size = 0;
 
 
 
