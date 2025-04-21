@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.cs": "csharp",
+        "ctestlib.h": "c"
+    }
+}

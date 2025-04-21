@@ -4,20 +4,52 @@
 #include <stdbool.h>
 #include <time.h>
 #include <process.h>
-#include "test_framework.h"
+#include "CTestLib.h"
 
-bool cmp_int(int a, int b) {
-    return a == b;
-}
+//test runner steps
+//init registry
+//add tests to registry
+//init output
+//run tests
+//print results
 
 // define way to open file read args and test args on a defined function
 // FILE* openFile(char* f) {
 //     return fopen(f, 'r');
 // }
 
+/**
+ * runs a test
+ */
+void runTest(struct CTestLibTest* test) {
+    clock_t startTime, endTime;
+
+    // #ifdef _WIN32
+    //     //windows code
+    //     pid_t pid = CreateProccess();
+
+    // #elif __APPLE__
+    //     //apple code
+
+    // #elif __linux__
+        // linux code
+        pid_t pid = fork();
+        
+
+
+    // #else
+    //     //throw an error operating system not supported
+    //     exit(-1)
+    // #endif
+
+    double elapsedTime = ((double) (endTime - startTime)) / CLOCKS_PER_SEC;
+    test->elapsedTime = elapsedTime;
+}
+
+
 // modifies the current regestry to add all the information regarding tests
 // add tests as linked list then get size of list when need to run tests, as tests are being ran, add error information to tests
-void run_test_reg(struct CTestLibTestReg* reg) {
+void runTestReg(struct CTestLibTestReg* reg) {
 
 
 }
@@ -58,13 +90,34 @@ void testCtestLib(void* func, void* expected) {
 }
 
 
-// this will function as a cmd for the testing framework
-int main(int argc, char* argv) {
-    
+void addTestToRegestry(struct CTestLibTestReg* reg, struct CTestLibTest* test) {
+    //extract the linked list of tests
+    struct CTestLibList* regList = reg->testLists;
 
-    return 0;
+    // add a new test
+
+
+    if(reg->testLists == NULL) {
+        
+    }
 }
 
+struct CTestLibTestReg* init_CTestLib() {
+    struct CTestLibTestReg* reg = (struct CTestLibTestReg*) malloc(sizeof(struct CTestLibTestReg*));
+    reg->testLists = (struct CTestLibList*) malloc(sizeof(struct CTestLibList));
+
+
+
+
+    return reg;
+}
+
+
+void del_CTestLib(struct CTestLibTestReg* reg) {
+    // free all resources
+
+    free(reg);
+}
 
 /**
  * order of file runner

@@ -1,15 +1,13 @@
-#include "test_framework.h"
-// run a test
+#include "CTestLib.h"
+#include <assert.h>
 
 // define an array with the tests inside
 
 // add tests to regestry to run
 
-int add(int a, int b) {return a + b;}
-
 // create tests for add
-CTestLib_Tests tests = {
-    assert(add(2,2) == 4);
+void testStarch() {
 
 }
-testCTestLib(testAdd);
+
+register_SartchTest(testStarch);

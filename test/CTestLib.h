@@ -4,12 +4,30 @@
 #include <time.h>
 #include <assert.h>
 
+#ifndef C_TEST_LIB_SKIP_TEST
+#define C_TEST_LIB_SKIP_TEST //
+
+#endif
+
+
+
 typedef void (*CTestLibTestFunction)(void);
 
-struct CTestLib_Test {
-    
+// struct CTestLib
+
+/**
+ * user-defined test for CTestLib
+ * acts like a 'suite' of tests
+ */
+struct CTestLibTestSuite {
+    char* name;
+    CTestLibTestFunction function;
 };
 
+/**
+ * CTestLibTest
+ * This is the struct for the test result of a given test
+ */
 struct CTestLibTest
 {
     enum CTEST_LIB_TEST_STATUS status;
@@ -20,14 +38,21 @@ struct CTestLibTest
     double elapsedTime;
     char* testName;
     int testNum;
+    int testsPassed;
+    int testsFailed;
 };
 
+/**
+ * global registry for the CTestLib Suite
+ */
 struct CTestLibTestReg
 {
     // single linked list of regestry
-    struct CTestLibList* testLists;
+    struct CTestLibList* testLists; // will be deleted when a node is ran
+    // this is a registry as an array - this is where the ran tests will be held when ran
     struct CTestLibList* tests;
 };
+
 
 struct CTestLibTestNode {
     struct CTestLibTest* test;
