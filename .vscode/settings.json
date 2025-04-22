@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.cs": "csharp",
+        "ctestlib.h": "c",
+        "compare": "c",
+        "type_traits": "c"
+    }
+}
